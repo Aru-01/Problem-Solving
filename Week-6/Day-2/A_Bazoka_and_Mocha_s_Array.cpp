@@ -2,8 +2,8 @@
 
 #include <bits/stdc++.h>
 #define ll long long
-#define no cout << "NO\n"
-#define yes cout << "YES\n"
+#define no cout << "No\n"
+#define yes cout << "Yes\n"
 using namespace std;
 void solve()
 {
@@ -16,7 +16,27 @@ void solve()
         vector<int> arr(n);
         for (int &i : arr)
             cin >> i;
-        
+        int cnt = 0;
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (arr[i] > arr[i + 1])
+                cnt++;
+        }
+
+        if (cnt <= 1)
+        {
+            if (!cnt)
+                yes;
+            else
+            {
+                if (arr[n - 1] <= arr[0])
+                    yes;
+                else
+                    no;
+            }
+        }
+        else
+            no;
     }
 }
 int main()
