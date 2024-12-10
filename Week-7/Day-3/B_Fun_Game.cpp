@@ -7,14 +7,52 @@
 using namespace std;
 void solve()
 {
-     int t;
-        cin >> t;
-        while (t--)
+    int test;
+    cin >> test;
+    while (test--)
+    {
+        int n;
+        cin >> n;
+        string s, t;
+        cin >> s >> t;
+        if (s == t)
         {
-            int n;
-            cin >> n;
-            
+            yes;
+            continue;
         }
+
+        int pos = -1;
+
+        for (int i = 0; i < n; i++)
+        {
+            if (s[i] == '1')
+            {
+                pos = i;
+                break;
+            }
+        }
+        if (pos != -1)
+        {
+            bool ok = true;
+            for (int i = 0; i < n; i++)
+            {
+                if (s[i] != t[i])
+                {
+                    if (pos > i)
+                    {
+                        ok = false;
+                        break;
+                    }
+                }
+            }
+            if (ok)
+                yes;
+            else
+                no;
+        }
+        else
+            no;
+    }
 }
 int main()
 {
