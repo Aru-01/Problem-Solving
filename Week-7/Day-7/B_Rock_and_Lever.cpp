@@ -9,6 +9,23 @@ void solve()
 {
     int n;
     cin >> n;
+    vector<int> a(n);
+    for (int &i : a)
+        cin >> i;
+
+    ll ans = 0;
+
+    for (int i = 30; i >= 0; i--)
+    {
+        ll cnt = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (a[j] >= pow(2, i) & a[j] < pow(2, i + 1))
+                cnt++;
+        }
+        ans += (cnt * (cnt - 1)) / 2;
+    }
+    cout << ans << '\n';
 }
 int main()
 {
