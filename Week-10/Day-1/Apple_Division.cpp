@@ -18,7 +18,6 @@ void solve()
         sum += i;
     }
 
-    // cout << (1 << n) << '\n';
 
     for (int mask = 0; mask < (1 << n); mask++)
     {
